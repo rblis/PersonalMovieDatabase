@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/PersonalMovieDatabase/static/css/main.171d13de.css",
+    "main.css": "/PersonalMovieDatabase/static/css/main.3db4dd3c.css",
     "main.js": "/PersonalMovieDatabase/static/js/main.3c20df7e.js",
     "index.html": "/PersonalMovieDatabase/index.html",
-    "main.171d13de.css.map": "/PersonalMovieDatabase/static/css/main.171d13de.css.map",
+    "main.3db4dd3c.css.map": "/PersonalMovieDatabase/static/css/main.3db4dd3c.css.map",
     "main.3c20df7e.js.map": "/PersonalMovieDatabase/static/js/main.3c20df7e.js.map"
   },
   "entrypoints": [
-    "static/css/main.171d13de.css",
+    "static/css/main.3db4dd3c.css",
     "static/js/main.3c20df7e.js"
   ]
 }
