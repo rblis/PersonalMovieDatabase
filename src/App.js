@@ -38,7 +38,7 @@ function App() {
     const getSearch = async (page_num = 1) => {
         
         const {data} = await axios.get(
-            `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_APIKEY}&language=en-US&query=${search}&page=${page_num}&include_adult=false`
+            `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_APIKEY}&language=en-US&query=${search}&page=${page_num}&include_adult=true`
         );
         setMovies(prev => ([...prev, ...data.results.filter((movie) => (movie.release_date.length > 4 && movie.poster_path != null && movie.genre_ids.length >= 1))]));
         
