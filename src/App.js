@@ -36,11 +36,11 @@ function App() {
     
 
     const getSearch = async (page_num = 1) => {
-        
+        let xx = 'c16757326823b21717940e69d88d8c02';
         const {data} = await axios.get(
             `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_APIKEY}&language=en-US&query=${search}&page=${page_num}&include_adult=true`
         );
-        setMovies(prev => ([...prev, ...data.results.filter((movie) => (movie.release_date.length > 4 && movie.poster_path != null && movie.genre_ids.length >= 1))]));
+        setMovies(prev => ([...prev, ...data.results.filter((movie) => (movie.release_date != null  && movie.release_date.length > 4 && movie.poster_path != null && movie.genre_ids != null))]));
         
         return [data.page, data.total_pages];
         
@@ -90,10 +90,10 @@ function App() {
                 </div>
                 ) : (
                 <>
-                    <div style={{fontSize: '.85em', fontFamily: 'Broadway', letterSpacing: '.2em', transform: 'scale(1.25, 1.5)'}}>
-                        <h1>{search == "" ? "Find movies using the search bar" : "No movies found for the query \'" + search + "\'"}</h1>
+                    <div >
+                        <h1 className='search_msg'>{search == "" ? "Find movies using the search bar" : "No movies found for the query \'" + search + "\'"}</h1>
                         <hr/>
-                        <h2>Use the search bar to find new movies to add to the library</h2>
+                        <h2 className='search_msg'>Library is empty!</h2>
                     </div>
                         
                 </>
