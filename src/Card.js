@@ -27,25 +27,25 @@ const genreids = {
 'Western':37,
 };
 
-const Card = ({onDelete, pic, name, year, genre, id, description, popularity, language}) =>{
+const Card = ({onDelete, movie, onAdd, library}) =>{
     const [openMDV, setOpenMDV] = useState(false)
     
     const cardCLick = () => {
-        console.log(name + ' ' + year + ' ' + genre);
         setOpenMDV(true);
     }
     
     return (
         <>
-            <MovieDetailView close={setOpenMDV} open={openMDV} pic={pic} name={name} year={year} genre={genre} description={description} popularity={popularity} language={language}> </MovieDetailView>
+            <MovieDetailView movie={movie} close={setOpenMDV} open={openMDV} onAdd={onAdd}></MovieDetailView>
             
-            <div onClick={() => cardCLick()} className="movie_card">
-                <FaTimes className='delete_card' onClick={() => onDelete(id)} style={{ color: 'red', cursor: 'pointer' }} />
-                <img alt={name} className="movie_card_pic" src={pic === null ? noposter : "https://www.themoviedb.org/t/p/w1280/" + pic} />
+            <div onClick={() => cardCLick()} className={library ? "libary_card" : 'movie_card'}>
+                {!library ? <FaTimes className='delete_card red' onClick={() => onDelete(movie.id)}/> : ''}
+                
+                <img alt={movie.title} className="movie_card_pic" src={movie.poster_path === null ? noposter : "https://www.themoviedb.org/t/p/w1280/" + movie.poster_path} />
 
                 <div className='movie_card_info'>
-                    <div style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{popularity} {name} </div>
-                    <div>{year.substring(0, 4)} | {genres[genre[0]]} {genre.length > 1 ? " - " + genres[genre[1]] : ''} </div>
+                    <div style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{movie.title} </div>
+                    <div>{movie.release_date.substring(0, 4)} | {genres[movie.genre_ids[0]]} {movie.genre_ids.length > 1 ? " - " + genres[movie.genre_ids[1]] : ''} </div>
                 </div>
 
             </div>
