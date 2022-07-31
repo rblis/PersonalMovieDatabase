@@ -1,5 +1,4 @@
 {
-  "homepage": "https://rblis.github.io/PersonalMovieDatabase",
   "name": "pmdb",
   "version": "0.1.0",
   "private": true,
@@ -8,6 +7,8 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.24.0",
+    "firebase": "^9.9.1",
+    "firebase-tools": "^11.4.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
@@ -39,8 +40,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "gh-pages": "^3.2.3"
   }
 }
